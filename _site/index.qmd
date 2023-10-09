@@ -1,5 +1,0 @@
----
-title: "GISProject"
----
-
-Welcome to our GIS Project
