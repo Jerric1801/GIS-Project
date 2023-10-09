@@ -1,7 +1,7 @@
 ---
 title: "SMT201 website"
 description: |
-  Welcome to the website. I hope you enjoy it!
+  Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.
 site: distill::distill_website
 ---
 
