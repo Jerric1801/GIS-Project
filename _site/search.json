@@ -2,11 +2,11 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "SMT201 website",
+      "title": "About Us",
       "description": "Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.\n",
       "author": [],
       "contents": "\nTheme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.\n\n\n\n",
-      "last_modified": "2023-11-06T11:11:41+08:00"
+      "last_modified": "2023-11-06T11:14:55+08:00"
     },
     {
       "path": "index.html",
@@ -14,15 +14,15 @@
       "description": "Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.\n",
       "author": [],
       "contents": "\nTheme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.\n\n\n\n",
-      "last_modified": "2023-11-06T11:11:43+08:00"
+      "last_modified": "2023-11-06T11:14:55+08:00"
     },
     {
       "path": "overview.html",
-      "title": "SMT201 website",
+      "title": "Overview",
       "description": "Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.\n",
       "author": [],
       "contents": "\nTheme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.\n\n\n\n",
-      "last_modified": "2023-11-06T11:11:44+08:00"
+      "last_modified": "2023-11-06T11:14:57+08:00"
     }
   ],
   "collections": []
