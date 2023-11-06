@@ -11,5 +11,11 @@ navbar:
       href: about.html
     - text: "Overview"
       href: overview.html
+    - text: "WebMap"
+      menu:
+      - text: "Punggol Pre-school distribution"
+        href: qgis2web/index.html
+      - text: "Punggol 3D Model"
+        href: geoweb3D/index.html
       
 output: distill::distill_article
