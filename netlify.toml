@@ -1,0 +1,3 @@
+[build]
+  command = "quarto publish --output-dir _site"
+  publish = "_site"
