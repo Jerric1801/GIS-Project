@@ -1,0 +1,14 @@
+---
+title: "Poster"
+format:
+  html:
+    css: style.css 
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+![Poster](static/poster.jpg)

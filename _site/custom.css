@@ -1,0 +1,114 @@
+:root {
+    /* color-scheme */
+    --blue : #003366;
+    --lblue:  #66a3ff;
+    --grey: #cccccc;
+    --white: #ffffff;
+    --hwhite: #e6e6d4;
+    --black: #333333;
+    
+    --pri:  #ff5c5c;
+    --sec:  #ffcc66;
+}
+
+@font-face {
+  font-family: noto;
+  src: url(../static/fonts/Noto_Sans_Arabic/static/NotoSansArabic-Regular.ttf);
+}
+
+@font-face {
+  font-family: cairo;
+  src: url(../static/fonts/Cairo/static/Cairo-Regular.ttf);
+}
+
+@font-face {
+  font-family: cormorant;
+  src: url(../static/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+}
+
+body {
+  font-family: cormorant;
+  font-size: 1.5em;
+}
+
+
+a {
+  color: var(--black) !important;
+  font-weight: bolder;
+}
+
+.navbar-nav > .active > a{
+  color: var(--lblue) !important;
+  background-color: transparent!important;
+  border-radius: 10px;
+}
+
+a:hover {
+  color: var(--lblue) !important;
+  cursor:pointer;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px; 
+  height: 2px;
+  width: 0;
+  background-color: var(--lblue);
+  transition: width 0.5s ease; 
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+.introContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: cairo;
+  position: relative;
+  background-color: #003366;
+  font-size: large;
+  height: 50vh;
+  background-image: url("../static/landing.jpeg");
+  background-position: center;
+  background-size: cover; /* Ensure the background image covers the entire div */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+/* Add a black overlay */
+.introContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(19, 18, 18, 0.505);
+  z-index: 1;
+}
+
+.introContainer:hover {
+  animation: 5s zoomOut;
+  background-size: cover;
+}
+
+.introContainer p {
+  font-size: 3em;
+  z-index: 2 !important;
+  position: relative;
+  color: white;
+}
+
+@keyframes zoomOut {
+  from {
+    background-size: 105%; /* Initial state, covering the div */
+  }
+  to {
+    background-size: 100%; /* Zoom out effect */
+  }
+}
+

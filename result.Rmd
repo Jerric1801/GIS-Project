@@ -1,0 +1,15 @@
+---
+title: "Result"
+description: |
+  Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+Our Overview
+
+Our motivation stems from the pressing need for disaster mitigation and management, highlighted by the recent Derna Dam collapse in Libya. Our project's goal is to demonstrate how GIS and remote sensing data can enhance urban flood loss assessment and recovery planning, fostering vibrant and prepared communities in the face of future crises. With an estimated death toll of over 10,000, it is crucial to evaluate measures for future disaster mitigation and urban recovery in Libya. 

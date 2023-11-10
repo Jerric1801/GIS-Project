@@ -1,14 +1,26 @@
 ---
-title: "SMT201 website"
-description: |
-  Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.
 site: distill::distill_website
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
 ```
+<!-- 
+```{=html}
+<div class = "videoMask">
+ <video autoplay loop muted controls="false">
+        <source src="static/landing.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+  </video>
+</div>
+<div class = "indexContainer">
+  <p> Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood
+Loss Assessment and Recovery Planning.</p>
+</div>
+``` -->
 
-Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood Loss Assessment and Recovery Planning.
-
+::: {.introContainer}
+GIS & Remote Sensing <br>
+2023 Derna Flood درنة
+:::
+image from [middle east eye]("https://www.middleeasteye.net/news/libya-floods-missed-warnings-bad-calls-derna-left-drown")
