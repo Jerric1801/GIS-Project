@@ -70,7 +70,6 @@ a:hover::after {
   text-align: center;
   font-family: cairo;
   position: relative;
-  background-color: #003366;
   font-size: large;
   height: 50vh;
   background-image: url("../static/landing.jpeg");
