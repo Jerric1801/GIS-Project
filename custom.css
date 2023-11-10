@@ -13,17 +13,17 @@
 
 @font-face {
   font-family: noto;
-  src: url(../static/fonts/Noto_Sans_Arabic/static/NotoSansArabic-Regular.ttf);
+  src: url(/static/fonts/Noto_Sans_Arabic/static/NotoSansArabic-Regular.ttf);
 }
 
 @font-face {
   font-family: cairo;
-  src: url(../static/fonts/Cairo/static/Cairo-Regular.ttf);
+  src: url(/static/fonts/Cairo/static/Cairo-Regular.ttf);
 }
 
 @font-face {
   font-family: cormorant;
-  src: url(../static/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+  src: url(/static/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
 }
 
 body {
@@ -72,7 +72,7 @@ a:hover::after {
   position: relative;
   font-size: large;
   height: 50vh;
-  background-image: url("../static/landing.jpeg");
+  background-image: url("/static/landing.jpeg");
   background-position: center;
   background-size: cover; /* Ensure the background image covers the entire div */
   overflow: hidden; /* Hide any overflowing content */
