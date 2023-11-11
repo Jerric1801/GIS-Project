@@ -1,29 +1,29 @@
 :root {
     /* color-scheme */
     --blue : #003366;
-    --lblue:  #66a3ff;
     --grey: #cccccc;
     --white: #ffffff;
     --hwhite: #e6e6d4;
     --black: #333333;
     
-    --pri:  #ff5c5c;
-    --sec:  #ffcc66;
+    --pri:  #66a3ff;
+    --sec:  #FFC266;
+    --ter: #66FF76;
 }
 
 @font-face {
   font-family: noto;
-  src: url(/static/fonts/Noto_Sans_Arabic/static/NotoSansArabic-Regular.ttf);
+  src: url(./static/fonts/Noto_Sans_Arabic/static/NotoSansArabic-Regular.ttf);
 }
 
 @font-face {
   font-family: cairo;
-  src: url(/static/fonts/Cairo/static/Cairo-Regular.ttf);
+  src: url(./static/fonts/Cairo/static/Cairo-Regular.ttf);
 }
 
 @font-face {
   font-family: cormorant;
-  src: url(/static/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+  src: url(./static/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
 }
 
 body {
@@ -31,20 +31,31 @@ body {
   font-size: 1.5em;
 }
 
+.main-container {
+  background-color:--white;
+}
+
+.title {
+  display: none;
+}
+
 
 a {
   color: var(--black) !important;
-  font-weight: bolder;
+}
+
+.navbar  {
+  background-color: var(--white);
 }
 
 .navbar-nav > .active > a{
-  color: var(--lblue) !important;
+  color: var(--pri) !important;
   background-color: transparent!important;
   border-radius: 10px;
 }
 
 a:hover {
-  color: var(--lblue) !important;
+  color: var(--pri) !important;
   cursor:pointer;
 }
 
@@ -55,7 +66,7 @@ a::after {
   bottom: 4px; 
   height: 2px;
   width: 0;
-  background-color: var(--lblue);
+  background-color: var(--pri);
   transition: width 0.5s ease; 
 }
 
@@ -76,6 +87,7 @@ a:hover::after {
   background-position: center;
   background-size: cover; /* Ensure the background image covers the entire div */
   overflow: hidden; /* Hide any overflowing content */
+  background-size: 110%;
 }
 
 /* Add a black overlay */
@@ -99,15 +111,48 @@ a:hover::after {
   font-size: 3em;
   z-index: 2 !important;
   position: relative;
-  color: white;
+  color: var(--white);
 }
 
 @keyframes zoomOut {
   from {
-    background-size: 105%; /* Initial state, covering the div */
+    background-size: 110%; /* Initial state, covering the div */
   }
   to {
     background-size: 100%; /* Zoom out effect */
   }
+}
+
+.sectionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cairo;
+  height: 12.5vh;
+  width: 40%;
+  background-color: var(--sec);
+  color:var(--white);
+  font-size: 4em;
+  /* box-shadow: var(--sec) -5px 5px, #e9b15d -10px 10px, #ad8446 -15px 15px; */
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  margin: 5vh 0vh 2.5vh 0vh;
+  border-radius: 15px;
+}
+
+.paraContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 1.2em;
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+  padding: 0.3em;
+}
+
+#map {
+  width: 80vw;
+  height: 70vh;
+  padding: 0;
+  margin: 0;
 }
 

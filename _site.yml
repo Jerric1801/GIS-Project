@@ -11,7 +11,7 @@ navbar:
       href: overview.html
     - text: "Methodology"
       href: methodology.html
-    - text: "Results & Discussion"
+    - text: "Results"
       href: result.html
     - text: "Poster"
       href: poster.html
@@ -21,3 +21,4 @@ navbar:
 output:
   html_document:
     css: "custom.css"
+    toc: true
