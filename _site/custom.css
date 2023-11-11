@@ -128,11 +128,11 @@ a:hover::after {
   justify-content: center;
   align-items: center;
   font-family: cairo;
-  height: 12.5vh;
-  width: 40%;
+  height: 10.5vh;
+  width: 100%;
   background-color: var(--sec);
   color:var(--white);
-  font-size: 4em;
+  font-size: 3em;
   /* box-shadow: var(--sec) -5px 5px, #e9b15d -10px 10px, #ad8446 -15px 15px; */
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   margin: 5vh 0vh 2.5vh 0vh;
@@ -149,10 +149,15 @@ a:hover::after {
   padding: 0.3em;
 }
 
-#map {
-  width: 80vw;
+.map {
+  width: 100%;
   height: 70vh;
   padding: 0;
   margin: 0;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.map:hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 

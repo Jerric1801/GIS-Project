@@ -8,6 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,19 +31,24 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
         <script src="data/derna_worst_area_0.js"></script>
         <script src="data/derna_roads_1.js"></script>
         <script src="data/derna_streets_2.js"></script>
-        <script src="data/googlebuilding_loss_assessment_3.js"></script>
+        <script src="data/LossAssessmentCategory_3.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[32.75781974534192,22.627331725947307],[32.77583287891376,22.66016666341762]]);
+            zoomControl:true, maxZoom:20, minZoom:15
+        })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+            map.setMaxBounds(map.getBounds());
         }
         function pop_derna_worst_area_0(feature, layer) {
             var popupContent = '<table>\
@@ -109,60 +115,6 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['sourceid'] !== null ? autolinker.link(feature.properties['sourceid'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['onme'] !== null ? autolinker.link(feature.properties['onme'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['rtenme'] !== null ? autolinker.link(feature.properties['rtenme'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ntlclass'] !== null ? autolinker.link(feature.properties['ntlclass'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['numlanes'] !== null ? autolinker.link(feature.properties['numlanes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['srftpe'] !== null ? autolinker.link(feature.properties['srftpe'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['srfcond'] !== null ? autolinker.link(feature.properties['srfcond'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['isseasonal'] !== null ? autolinker.link(feature.properties['isseasonal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['curntprac'] !== null ? autolinker.link(feature.properties['curntprac'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['gnralspeed'] !== null ? autolinker.link(feature.properties['gnralspeed'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['rdwidthm'] !== null ? autolinker.link(feature.properties['rdwidthm'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['status'] !== null ? autolinker.link(feature.properties['status'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['iselevated'] !== null ? autolinker.link(feature.properties['iselevated'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['iso3'] !== null ? autolinker.link(feature.properties['iso3'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['country'] !== null ? autolinker.link(feature.properties['country'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['last_updat'] !== null ? autolinker.link(feature.properties['last_updat'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
@@ -205,60 +157,6 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['sourceid'] !== null ? autolinker.link(feature.properties['sourceid'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['onme'] !== null ? autolinker.link(feature.properties['onme'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['rtenme'] !== null ? autolinker.link(feature.properties['rtenme'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ntlclass'] !== null ? autolinker.link(feature.properties['ntlclass'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['numlanes'] !== null ? autolinker.link(feature.properties['numlanes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['srftpe'] !== null ? autolinker.link(feature.properties['srftpe'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['srfcond'] !== null ? autolinker.link(feature.properties['srfcond'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['isseasonal'] !== null ? autolinker.link(feature.properties['isseasonal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['curntprac'] !== null ? autolinker.link(feature.properties['curntprac'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['gnralspeed'] !== null ? autolinker.link(feature.properties['gnralspeed'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['rdwidthm'] !== null ? autolinker.link(feature.properties['rdwidthm'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['status'] !== null ? autolinker.link(feature.properties['status'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['iselevated'] !== null ? autolinker.link(feature.properties['iselevated'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['iso3'] !== null ? autolinker.link(feature.properties['iso3'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['country'] !== null ? autolinker.link(feature.properties['country'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['last_updat'] !== null ? autolinker.link(feature.properties['last_updat'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
@@ -290,50 +188,29 @@
         });
         bounds_group.addLayer(layer_derna_streets_2);
         map.addLayer(layer_derna_streets_2);
-        function pop_googlebuilding_loss_assessment_3(feature, layer) {
+        function pop_LossAssessmentCategory_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['clustered_buildings_cluster'] !== null ? autolinker.link(feature.properties['clustered_buildings_cluster'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Building Type'] !== null ? autolinker.link(feature.properties['Building Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['building_type'] !== null ? autolinker.link(feature.properties['building_type'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Building Name'] !== null ? autolinker.link(feature.properties['Building Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_damaged_proportion'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_damaged_proportion'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_damaged_buildings_area'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_damaged_buildings_area'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_damage_class'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_damage_class'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_google — clustered_buildings_clustered_buildings_cluster'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_google — clustered_buildings_clustered_buildings_cluster'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_google — clustered_buildings_building_type'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_google — clustered_buildings_building_type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_Building Type'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_Building Type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_Building Name'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_Building Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['google — worst_loss_categorized_Loss Category'] !== null ? autolinker.link(feature.properties['google — worst_loss_categorized_Loss Category'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Loss Category'] !== null ? autolinker.link(feature.properties['Loss Category'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_googlebuilding_loss_assessment_3_0(feature) {
-            switch(String(feature.properties['google — worst_loss_categorized_Loss Category'])) {
+        function style_LossAssessmentCategory_3_0(feature) {
+            switch(String(feature.properties['Loss Category'])) {
                 case 'Cultural':
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -343,7 +220,7 @@
                     break;
                 case 'Economic':
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -358,7 +235,7 @@
                     break;
                 case 'Governance':
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -373,7 +250,7 @@
                     break;
                 case 'Health & Safety':
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -388,7 +265,7 @@
                     break;
                 case 'Humanitarian':
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -403,7 +280,7 @@
                     break;
                 case 'Social':
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -418,7 +295,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_googlebuilding_loss_assessment_3',
+                pane: 'pane_LossAssessmentCategory_3',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -433,23 +310,28 @@
                     break;
             }
         }
-        map.createPane('pane_googlebuilding_loss_assessment_3');
-        map.getPane('pane_googlebuilding_loss_assessment_3').style.zIndex = 403;
-        map.getPane('pane_googlebuilding_loss_assessment_3').style['mix-blend-mode'] = 'normal';
-        var layer_googlebuilding_loss_assessment_3 = new L.geoJson(json_googlebuilding_loss_assessment_3, {
+        map.createPane('pane_LossAssessmentCategory_3');
+        map.getPane('pane_LossAssessmentCategory_3').style.zIndex = 403;
+        map.getPane('pane_LossAssessmentCategory_3').style['mix-blend-mode'] = 'normal';
+        var layer_LossAssessmentCategory_3 = new L.geoJson(json_LossAssessmentCategory_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_googlebuilding_loss_assessment_3',
-            layerName: 'layer_googlebuilding_loss_assessment_3',
-            pane: 'pane_googlebuilding_loss_assessment_3',
-            onEachFeature: pop_googlebuilding_loss_assessment_3,
-            style: style_googlebuilding_loss_assessment_3_0,
+            dataVar: 'json_LossAssessmentCategory_3',
+            layerName: 'layer_LossAssessmentCategory_3',
+            pane: 'pane_LossAssessmentCategory_3',
+            onEachFeature: pop_LossAssessmentCategory_3,
+            style: style_LossAssessmentCategory_3_0,
         });
-        bounds_group.addLayer(layer_googlebuilding_loss_assessment_3);
-        map.addLayer(layer_googlebuilding_loss_assessment_3);
-        var baseMaps = {};
-        L.control.layers(baseMaps,{'google — building_loss_assessment<br /><table><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_Cultural0.png" /></td><td>Cultural</td></tr><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_Economic1.png" /></td><td>Economic</td></tr><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_Governance2.png" /></td><td>Governance</td></tr><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_HealthSafety3.png" /></td><td>Health & Safety</td></tr><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_Humanitarian4.png" /></td><td>Humanitarian</td></tr><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_Social5.png" /></td><td>Social</td></tr><tr><td style="text-align: center;"><img src="legend/googlebuilding_loss_assessment_3_6.png" /></td><td></td></tr></table>': layer_googlebuilding_loss_assessment_3,'<img src="legend/derna_streets_2.png" /> derna_streets': layer_derna_streets_2,'<img src="legend/derna_roads_1.png" /> derna_roads': layer_derna_roads_1,'<img src="legend/derna_worst_area_0.png" /> derna_worst_area': layer_derna_worst_area_0,}).addTo(map);
+        bounds_group.addLayer(layer_LossAssessmentCategory_3);
+        map.addLayer(layer_LossAssessmentCategory_3);
         setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_LossAssessmentCategory_3,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Building Type'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
         </script>
     </body>
 </html>
