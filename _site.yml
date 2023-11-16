@@ -4,11 +4,12 @@ description: |
   SMT201 website
 output_dir: "_site"
 navbar:
+  title: "<img id=\"logo\" style=\"width: 30px;\" src=\"./static/logo.png\" />"
   left:
     - text: "Home"
       href: index.html
-    - text: "Overview"
-      href: overview.html
+    - text: "Proposal"
+      href: proposal.html
     - text: "Methodology"
       href: methodology.html
     - text: "Results"

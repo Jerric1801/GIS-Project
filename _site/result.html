@@ -1109,26 +1109,6 @@ $(document).ready(function () {
     map.addLayer(layer_derna_streets_3);
     setBounds();
     </script>
-    <script>
-      // Initialize your maps
-      var map1 = L.map('map1').setView([51.505, -0.09], 13);
-      var map2 = L.map('map2').setView([51.505, -0.09], 13);
-    
-      // Disable map interactions initially for both maps
-      map1.setInteractive(false);
-      map2.setInteractive(true); // Enable interactions for map2
-    
-      // Add event listeners to update interactivity based on map changes
-      map1.on('zoomstart', function () {
-        map1.setInteractive(false);
-        map2.setInteractive(true);
-      });
-    
-      map2.on('zoomstart', function () {
-        map1.setInteractive(true);
-        map2.setInteractive(false);
-      });
-    </script>    
     
 </body>
 </html>
