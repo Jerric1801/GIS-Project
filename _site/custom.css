@@ -125,6 +125,11 @@ body {
 
 
 @media only screen and (max-width: 750px) {
+  #navbar{
+    background-color: var(--white) !important;
+    box-shadow: none !important;
+    z-index: 99;
+  }
   .navbar-brand {
     margin-left: 2.5vw !important;
   }
@@ -261,8 +266,8 @@ body {
   }
 
 .contentContainer {
-  margin-top: 15vh;
-  background-color: var(--sec);
+  margin-top: 10vh;
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,29 +279,91 @@ body {
   align-self: center;
   font-family: overpassBold;
   font-weight: bold;
-  color: var(--pri);
-  height: 8vh;
+  color: var(--black);
+  height: 6.5vh;
   width: 75%;
-  font-size: 5em;
-  margin-top: 10vh;
+  font-size: 3em;
+  margin-top: 8vh;
 }
 
+  .footnote {
+    font-size: 2em !important;
+  }
+
 .paraContainer {
-  margin-top: 5vh;
+  margin-top: 1vh;
   width: 75%;
   height: auto;
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-size: 1.2em;
-  color: var(--blue);
+  font-size: 1.1em;
+  color: var(--black);
+  background-color: var(--white);
   /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
-  padding: 1em 0.5em 6em 0.5em;
+  padding: 2em;
+  /* border-radius: 15px; */
+  border-bottom: solid 0.33px grey;
 }
+
+  .paraTitle {
+    font-weight: 900;
+    font-size: 1.3em;
+    margin-top: 1.5vh;
+  }
+
+  .paraTitleSec {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 1.2vh;
+  }
+
+  .paraImg {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+  }
+
+    .paraImg img {
+      width: 70%;
+      margin-bottom: 5px;
+    }
+
+    .paraImg p {
+      text-decoration: underline;
+    }
 
   .paraContainer p {
     text-align: left;
-    line-height: 40px;
+    line-height: 30px;
+  }
+
+  .paraContainer ol {
+    margin-left: 0rem;
+    padding-left: 0rem !important;
+  }
+
+  .paraContainer li {
+    margin-left: 2rem;
+  }
+
+  .paraRight {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .paraRightImg {
+    width: 100%;
+    object-fit: contain;
+    padding: 1.5em;
   }
 
 .map {
@@ -309,5 +376,28 @@ body {
 
 .map:hover {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+code {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 

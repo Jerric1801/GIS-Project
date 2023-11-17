@@ -11,7 +11,7 @@
 
 
 
-<title>Overview</title>
+<title>Proposal</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -414,70 +414,119 @@ display: none;
 <body>
 
 
-<div class="container-fluid main-container">
 
+  <div class="new-main-container container-fluid">
 
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="./static/logo.png" /></a>
+    <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img id="logo" src="./static/logo_sec.png" /></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="proposal.html">Proposal</a>
+            </li>
+            <li>
+              <a href="methodology.html">Methodology</a>
+            </li>
+            <li>
+              <a href="result.html">Results</a>
+            </li>
+            <li>
+              <a href="poster.html">Poster</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+      <a href="about.html">About</a>
+    </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container -->
+    </div><!--/.navbar -->
+    
+    <div id="header">
+    
+    
+    
+    <h1 class="title toc-ignore">Home</h1>
+    
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="proposal.html">Proposal</a>
-</li>
-<li>
-  <a href="methodology.html">Methodology</a>
-</li>
-<li>
-  <a href="result.html">Results</a>
-</li>
-<li>
-  <a href="poster.html">Poster</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="about.html">About</a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+    
+    
+    <div class = "contentContainer">
+      
+    
+      <div class="sectionContainer">
+      <p>MOTIVATION</p>
+      </div>
+    
+      <div class="paraContainer">
+        <p>Our motivation stems from the pressing need for disaster mitigation and management, highlighted by the recent Derna Dam collapse in Libya. Our project's goal is to demonstrate how GIS and remote sensing data can enhance urban flood loss assessment and recovery planning, fostering vibrant and prepared communities in the face of future crises. With an estimated death toll of over 10,000, it is crucial to evaluate measures for future disaster mitigation and urban recovery in Libya.</p>
+      </div>
+    
+      <div class = "sectionContainer">
+        <p>PROJECT OBJECTIVE</p>
+      </div>
+      <div class = "paraContainer">
+        <ol>
+          <li>To find out the extent to which the flood damage affects residents in Derna.</li>
+          <li>To make a comparative analysis of restorative efforts in terms of accessibility of essential amenities to the residents for short-term recovery efforts.</li>
+          <li>Suggest recommendations for long-term rebuilding and recovery.</li>
+        </ol>        
+      </div>
+    
+      <div class = "sectionContainer">
+        <p>DATA</p>
+      </div>
+    
+      <div class = "paraContainer">
+        <ol>
+          <li>derna_city_250m_hexagon.shp</li>
+          <li>Hotosm_lby_education_Facilities_points_shp_point.shp</li>
+          <li>Hotosm_lby_healthcare_Facilities_points_shp_point.shp</li>
+          <li>Hotosm_lby_points_of_interest_points_shp_point.shp</li>
+          <li>Lby_trs_roads_osm.shp</li>
+          <li>Lby_trs_streets_osm.shp</li>
+          <li>open_buildings_v3_polygons_Libya_Derna_floods.csv</li>
+          <li>Satellite Imagery from Maxar Technologies GeoEye-1 (1st July & 13th September 2023) Image quadkey numbers for both dates:
+            <ul>
+              <li>120200213121</li>
+              <li>120200213123</li>
+              <li>120200213130</li>
+              <li>120200213131</li>
+              <li>120200213132</li>
+              <li>120200213133</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
 
-<div id="header">
-
-
-
-<h1 class="title toc-ignore">Overview</h1>
-
-</div>
-
-
-<p>Our Overview</p>
-<p>Our motivation stems from the pressing need for disaster mitigation
-and management, highlighted by the recent Derna Dam collapse in Libya.
-Our project’s goal is to demonstrate how GIS and remote sensing data can
-enhance urban flood loss assessment and recovery planning, fostering
-vibrant and prepared communities in the face of future crises. With an
-estimated death toll of over 10,000, it is crucial to evaluate measures
-for future disaster mitigation and urban recovery in Libya.</p>
-
-
-
-
-</div>
+      <div class = "sectionContainer">
+        <p>SCOPE OF WORK</p>
+      </div>
+      <div class = "paraContainer">
+        <p>We carried out 3 methods of analysis, by using a circular buffer and network analysis.</p>
+        <p class = "paraTitle">Hexagonal Buffer Approach</p>
+        <p>This is the simplest, yet the most naive method, to deduce the catchment areas. We created a circular 50m buffer from each station, to find the number of residents in the buffer area, assuming residents are evenly distributed.</p>
+          
+         <p class = "paraTitle">Network Analysis</p>
+         <p>The next approach is based on the network analysis method. Instead of assuming a naive 1 km buffer, our catchment varies between multiple modes of transport along physical pathways or roads. In this case, the modes of transport include cycling in heavy traffic, cycling without heavy traffic, and walking.</p>
+                
+      </div>
+    
+      
+    </div>
+    
 
 <script>
 

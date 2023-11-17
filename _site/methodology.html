@@ -413,66 +413,570 @@ display: none;
 
 <body>
 
+<div class="new-main-container container-fluid">
 
-<div class="container-fluid main-container">
+  <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img id="logo" src="./static/logo_sec.png" /></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="proposal.html">Proposal</a>
+          </li>
+          <li>
+            <a href="methodology.html">Methodology</a>
+          </li>
+          <li>
+            <a href="result.html">Results</a>
+          </li>
+          <li>
+            <a href="poster.html">Poster</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+    <a href="about.html">About</a>
+  </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container -->
+  </div><!--/.navbar -->
+  
+  <div id="header">
+  
+  
+  
+  <h1 class="title toc-ignore">Home</h1>
+  
+  </div>
 
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="./static/logo.png" /></a>
+  
+  <div class = "contentContainer">
+    
+  
+    <div class="sectionContainer">
+    <p>DATA PREPERATION</p>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="proposal.html">Proposal</a>
-</li>
-<li>
-  <a href="methodology.html">Methodology</a>
-</li>
-<li>
-  <a href="result.html">Results</a>
-</li>
-<li>
-  <a href="poster.html">Poster</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="about.html">About</a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+  
+    <div class="paraContainer">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Shapefiles</th>
+            <th>File Name</th>
+            <th>Description</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> </td>
+            <td>derna_city_250m_hexagon.shp</td>
+            <td>250m-width hexagonal layer encompassing Derna city limits</td>
+            <td>ESRI shapefile format on eLearn GIS Project Folder</td>
+          </tr>
+          <tr>
+            <td>OSM point layer of education facilities in Libya</td>
+            <td>hotosm_lby_education_facilities_points_shp_point.shp</td>
+            <td>OSM point layer of education facilities in Libya</td>
+            <td><a href="https://data.humdata.org/dataset/hotosm_lby_education_facilities" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>OSM point layer of healthcare facilities in Libya</td>
+            <td>hotosm_lby_healthcare_facilities_points_shp_point.shp</td>
+            <td>OSM point layer of healthcare facilities in Libya</td>
+            <td><a href="https://data.humdata.org/dataset/hotosm_lby_healthcare_facilities" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>OSM point layer of points of interest in Libya</td>
+            <td>hotosm_lby_points_of_interest_points_shp_point.shp</td>
+            <td>OSM point layer of points of interest in Libya</td>
+            <td><a href="https://data.humdata.org/dataset/hotosm_lby_points_of_interest" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>OSM polygon layer of waterways in Libya</td>
+            <td>hotosm_lby_waterways_polygons_shp_poly.shp</td>
+            <td>OSM polygon layer of waterways in Libya</td>
+            <td><a href="https://data.humdata.org/dataset/hotosm_lby_waterways" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>OSM line layer of roads in Derna</td>
+            <td>lby_trs_roads_osm.shp</td>
+            <td>OSM line layer of roads in Derna</td>
+            <td><a href="https://data.humdata.org/dataset/lby_roads_streets" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>OSM line layer of streets in Derna</td>
+            <td>lby_trs_streets_osm.shp</td>
+            <td>OSM line layer of streets in Derna</td>
+            <td><a href="https://data.humdata.org/dataset/lby_roads_streets" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>CSV file of coordinates of building footprints in Derna flood affected area</td>
+            <td>open_buildings_v3_polygons_Libya_Derna_floods.csv</td>
+            <td>CSV file of coordinates of building footprints in Derna flood affected area</td>
+            <td><a href="https://data.humdata.org/dataset/buildings-footprint-floods-derna-libya" target="_blank">Source</a></td>
+          </tr>
+          <tr>
+            <td>Raster layers of GeoEye-1 satellite imagery</td>
+            <td>Satellite Imagery from Maxar Technologies GeoEye-1 (1st July & 13th September 2023)</td>
+            <td>Image quadkey numbers for both dates: 120200213121, 120200213123, 120200213130, 120200213131, 120200213132, 120200213133</td>
+            <td><a href="https://www.maxar.com/open-data/libya-floods-0923" target="_blank">Source</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class = "sectionContainer">
+      <p>PREPARATION PROCEDURES</p>
+    </div>
+    <div class = "paraContainer">
+      <p class="paraTitle">3.2.1 50m_buffer (Long Term Planning Recommendations)</p>
+      <p>The Buffer tool was used over the wadi_derna_boundary layer to generate a 50m buffer around the banks of the Wadi Derna.</p>
 
-<div id="header">
+      <div class = "paraImg">
+        <img src = "static/methodology/m1.png">
+        <p>Fig 3.1 Wadi Derna Buffer</p>
+      </div>
+  
+      <p class="paraTitle">3.2.2 acc-prefixed layers (Network Accessibility Analysis)</p>
+    
+    <ol>
+      <li>
+        <p>QNEAT3’s OD-Matrix as layers from table (M:N) tool was used to conduct network accessibility analysis to public amenities. As there are an excessive number of buildings, we used the centroids of each hexagon as a proxy to determine access from each area to public amenities. The Centroid tool (with the “for each part” checkbox ticked) was used on the hexagon_with_buildings layer to generate the points needed.</p>
+      </li>
+      <li>
+        <p>The resulting table layer was then SQL queried to extract the most relevant information, using the following query:</p>
+        <code>select origin_id, destination_id, min(total_cost) as distance from OD_Matrix group by origin_id</code><br>
+      </li>
+      <li>
+        <p>The resulting QueryLayer was then relationally joined to a copy of the hexagon_with_buildings layer with the parameters:</p>
+        <ul>
+          <li>Join Layer: QueryLayer</li>
+          <li>Join Field: id</li>
+          <li>Target Field: id</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p>For map creation, graduated symbology type was chosen with distance as the value and pretty breaks used for classification, and an inverse Spectral used for the colour ramp.</p>
+
+    <p class="paraTitle">3.2.3 buildings-prefixed layers (Buildings Loss Classification and Damage Extent Analysis)</p>
+
+    <p>We needed a reliable building dataset for accurate loss assessment as the analysis would primarily be done based on the damage extent. After visual comparison between the datasets provided by OpenStreetMap (OSM) and Google against satellite imagery, we concluded that the Google dataset was more comprehensive and accurate. Hence we extracted the csv file and created a polygon layer using the provided geometry. </p>
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m2.png">
+      <p>Fig 3.2 Google Building Dataset</p>
+    </div>
+
+    <p class="paraTitleSec">building_damage_proportion (Calculate Building Damage Extent using Classification)</p>
+
+    <p>To assess the extent of damage, we calculated the damage of relevant classes by determining the proportion of building area that was covered in soil. This is done in QGIS by intersecting the soil layer with the building layer, extracting the portions of the soil layer that are within each building. Next, we joined the intersected layer with the building layer and calculated a new column based on the area of the soil layer over the area of the building. </p>
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m1.png">
+      <p>Fig 3.3 Damaged Portions of Buildings</p>
+    </div>
+
+    <p>We further classified the damage into different subcategories, from “exposed to floodwater” to “extensive damage”, where extensive damage indicates that the building is almost completely destroyed. </p>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Damage Extent Category</th>
+          <th>Percentage of Building Covered with Soil (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Exposed to Floodwater</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Minor Damage</td>
+          <td>0-25</td>
+        </tr>
+        <tr>
+          <td>Moderate Damage</td>
+          <td>25-50</td>
+        </tr>
+        <tr>
+          <td>Severe Damage</td>
+          <td>50-75</td>
+        </tr>
+        <tr>
+          <td>Extensive Damage</td>
+          <td>75-100</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m4.png">
+      <p>Fig 3.4 Classified Damaged Extent </p>
+    </div>
+
+    <p class="paraTitleSec">building_loss_classification (Loss Classification Analysis)</p>
+
+    <p>To distinguish between the Residential and Non-Residential Buildings, we exported the building layer within the delineated flood hazard area into a csv file. We added the following variables to the layer, which were derived from the geometry of the buildings:
+      <ol>
+        <li>Area</li>
+        <li>Perimeter</li>
+        <li>Vertices</li>
+      </ol>
+      
+      
+      Next, The csv file was read into a Pandas Dataframe. Using Scikit-Learn’s K Means clustering module, we utilised the elbow method to determine the optimal number of clusters. 
+    </p>      
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m5.jpg">
+      <p>Fig 3.5 Elbow method</p>
+    </div>
+
+    <p>
+      Based on the graph, we decided to use five clusters. After standardising the variables, we clustered the model to create a resulting column called ‘cluster’.
+    </p>
+    
+    <code>
+      import numpy as np
+      import pandas as pd
+      from sklearn.cluster import KMeans
+      from sklearn.preprocessing import StandardScaler
+      df = pd.read_csv('google_buildings.csv')
+      features = ['area_in_meters', 'perimeter', 'vertices']
+      scaler = StandardScaler()
+      df_standardized = df.copy()
+      df_standardized[features] = scaler.fit_transform(df_standardized[features])
+      kmeans = KMeans(n_clusters=5)
+      df['cluster'] = kmeans.fit_predict(df_standardized[features])
+    </code>
+
+    <p>After attaining the results, we exported the results back into csv and loaded it into QGIS. </p>
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m6.png">
+      <p>Fig 3.6 Clusters Identified from K Means</p>
+    </div>
+
+    <p>Using the OSM building layer and visual analysis, we tagged the 5 different classes into 2 categories: Residential and Non-Residential. </p>
+    <div class = "paraImg">
+      <img src = "static/methodology/m7.png">
+      <p>Fig 3.7 Residential & Non-Residential</p>
+    </div>
+
+    <p>Using the layer obtained from clustering, we exported the classified non-Residential Buildings into a csv file which was later converted into a Pandas dataframe. The coordinates of each building (each row of the dataframe) was then passed into a module that called the Google Places API. This allowed us to get the (1) type of building & (2) name of the building.</p>
+
+    <code> 
+      gmaps = googlemaps.Client(key=api_key)
+      csv_file = './google_api/non-residential.csv'
+      df = pd.read_csv(csv_file)
+      building_types = []
+      building_names = []
+
+      for index, row in df.iterrows():
+        lat = row['latitude']
+        lon = row['longitude']
+        geocode_result = gmaps.reverse_geocode((lat, lon))
+        place_id = geocode_result[0]['place_id']
+        details = gmaps.place(place_id)
+        building_type = details['result']['types'][0] if 'types' in details['result'] else ''
+        building_name = details['result']['name'] if 'name' in details['result'] else ''
+        building_types.append(building_type)
+        building_names.append(building_name)
+
+      df['Building Type'] = building_types
+      df['Building Name'] = building_names
+    </code>
+
+    <p>Subsequently, we used a hashmap to map the type of building to the following subcategories: </p>
+
+    <code>
+      {'hair_care': 'Economic',
+      'gas_station': 'Economic',
+      'shoe_store': 'Economic',
+      'finance': 'Economic',
+      'post_office': 'Governance',
+      'car_wash': 'Economic',
+      'mosque': 'Cultural',
+      'place_of_worship': 'Cultural',
+      'real_estate_agency': 'Economic',
+      'gym': 'Economic',
+      'police': 'Governance',
+      'car_rental': 'Economic',
+      'jewelry_store': 'Economic',
+      'courthouse': 'Governance'}
+    </code>
+
+    <p>The dataframe was then exported back into a csv and uploaded into QGIS. For the buildings that were not classified with a type, we converted the building type back to “Residential”, which was further classified into the subcategory “Humanitarian”. We then classified the symbology of the layer based on the subcategories. </p>
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m8.png">
+      <p>Fig 3.8 Loss Categories</p>
+    </div>
+
+    <p class="paraTitle">3.2.4 clipped_classification layers (Object-Based Image Analysis) 
+    </p>
+
+    <p>The satellite images for the respective dates were firstly raster merged, before being raster clipped by the extent of hexagon_all. Once we had two raster layers of the satellite imagery over the Derna city limits, we could begin exploratory spatial data analysis.</p>
+
+    <p class="paraTitleSec">3.2.4.1 K Means Clustering for Satellite Imagery Before and After Flood</p>
+
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m9.png">
+      <p>Fig 3.9 (left): Result of isodata clustering on satellite imagery of Derna, pre-flood<br>
+        Figure 3.9 (right): Result of isodata clustering on satellite imagery of Derna, pre-flood
+        </p>
+    </div>
+
+    <p>Using the Semi-Automated Classification Plugin, exploratory spatial data analysis was conducted on the satellite imagery taken both before and after a flood event with k=15 classes and distance threshold = 0.0001 set as the parameters. The clustering grouped the imagery pixels into 12 classes, with 6 clusters being more frequent.</p>
+
+    <p>Unsupervised classification of the imagery pixels gave us 3 insights:</p>
+    <ol>
+      <li>That k-means on its own, without an understanding of ground realities, may cause us to define the number of classes that end up overfitting the model and it will overlap, so we do not get an accurate distinction. Thus, we want to train supervised models.</li>
+      <li>That traditional classification, which classifies individual raster layer pixels, may not be as effective in enabling an accurate distinction between different land cover types since individual objects like buildings may be differently colored/use different materials within itself.</li>
+      <li>That the number of classes to be used in the training of a supervised model should be around 6 - buildings / paved road / dirt road / water / barren land / vegetation. Further observation with different combinations of raster layer bands enabled us to split vegetation into 2 groups - farm and other vegetation.</li>
+    </ol>
+
+
+    <p class="paraTitleSec">3.2.4.2 Object-Based Image Analysis (OBIA) with GeoEye Satellite Imagery</p>
+
+    <p>Object-based Image Analysis (OBIA) offers an advantage over traditional pixel-based classification for very high resolution imagery due to its usage of segmentation to group pixels together in a way that corresponds to objects or buildings on the ground (GISGeography, 2023).</p>
+
+    <p>This is as at those resolutions, classification of individual pixels may misrepresent land cover as they may showcase different surface parts of a whole object or fall into the shadow area of a building. The grouping of pixels and the usage of their light wavelengths’ average and standard deviation values will provide a more accurate view of an object’s true nature during the classification process. In addition, the classification also considers the segment’s neighbours, size and shape (GISGeography, 2023).</p>
+
+  <div class = "paraImg">
+    <img src = "static/methodology/m10.png">
+    <p>Figure 3.10: Segmentation results (black lines) overlaid over satellite imagery showcase distinctions between objects on the ground, and consequently between land cover types
+      </p>
+  </div>
+
+  <ol>
+    <li>The image is segmented with OTB’s Segmentation tool, using the default settings, to create a temporary vector polygon layer.</li>
+    <li>For all pixels in each segment, their light spectrum band values were aggregated, and the minimum, maximum, mean, and standard deviation of each band were tagged to each segment, using OTB’s Zonal Statistics tool.</li>
+    <li>For each land cover class, objects were tagged for training of the model. Their corresponding segments would hence be labeled by the land cover value. Each class had 30 segments labeled to it (210 segments used for training for each image).</li>
+    <ul>
+    <li>This was done by placing points over objects (e.g. parts of roads, buildings) and manually entering their land cover class number.</li>
+    <li>Subsequently, the land cover class number would be joined to a copy of the segmentation layer in a one-to-one manner using the Join Attributes by Location number to create a layer with only the labeled segments.</li>
+    </ul>
+
+    <div class = "paraImg">
+      <img src = "static/methodology/m11.png">
+      <p>Fig 3.11: The result of Step 3 where selected segments are labelled according their different land cover types, where the different colours represent the different land cover class tagged to each segment
+      </p>
+    </div>
+
+    <li>The model was then created using OTB’s TrainVectorClassifier tool, using the default settings, and using the mean and standard deviation of each spectral band as the training values.</li>
+    <li>The entire segmented vector polygon layer (with the statistics tagged) was then classified using the model created with OTB’s VectorClassifier tool.</li>
+      
+  </ol>
+
+  <div class = "paraImg">
+    <img src = "static/methodology/m12.png">
+    <p>Fig 3.12 Before Flood
+    </p>
+  </div>
+
+  <div class = "paraImg">
+    <img src = "static/methodology/m13.png">
+    <p>Fig 3.13 After Flood 
+    </p>
+  </div>
+
+  <p class="paraTitle">3.2.5 derna-prefixed layers (Public Amenities in Derna)</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Data Layer</th>
+        <th>Output Layer</th>
+        <th>Selected Features</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>hotosm_lby_education_facilities_points_shp_point.shp</td>
+        <td>derna_education</td>
+        <td>All</td>
+      </tr>
+      <tr>
+        <td>hotosm_lby_healthcare_facilities_points_shp_point.shp</td>
+        <td>derna_healthcare</td>
+        <td>“amenity” in (‘clinic’, ‘hospital’)</td>
+      </tr>
+      <tr>
+        <td>hotosm_lby_points_of_interest_points_shp_point.shp</td>
+        <td>derna_worship</td>
+        <td>amenity = ‘place_of_worship’</td>
+      </tr>
+    </tbody>
+  </table>
+    
+
+  <p>Afterward, the layers were augmented manually as some facilities that appeared on QGIS’ OSM layer were not on the public amenities point layers.</p>
+
+
+  <p class="paraTitle">3.2.6 evacuation_extent-prefixed (Evacuation Centre Network Analysis)</p>
+
+  <p>
+    QNEAT3’s Iso-area as Polygon (from layer) tool was used to conduct network accessibility analysis to public amenities. The analysis was done on individual points before being vector merged together and exported to MultiPolygon layer due to limitations in the QNEAT3 software.
+  </p>   
+
+  <p>The parameters used are below:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Network layer</td>
+        <td>roads_merged</td>
+      </tr>
+      <tr>
+        <td>Size of iso-areas/contour interval</td>
+        <td>1200</td>
+      </tr>
+      <tr>
+        <td>From-point layer</td>
+        <td>Centroid (temporary layer)</td>
+      </tr>
+      <tr>
+        <td>Unique point ID field</td>
+        <td>id</td>
+      </tr>
+      <tr>
+        <td>Path type to calculate</td>
+        <td>Fastest path</td>
+      </tr>
+      <tr>
+        <td>Default direction</td>
+        <td>Both directions</td>
+      </tr>
+      <tr>
+        <td>Default speed</td>
+        <td>3km/h</td>
+      </tr>
+      <tr>
+        <td>Layer utilising output for generation</td>
+        <td>evacuation_extent_current</td>
+      </tr>
+      <tr>
+        <td>To-point layer</td>
+        <td>evacuation_sites (without recommended site)</td>
+      </tr>
+      <tr>
+        <td>Layer utilising output for generation</td>
+        <td>evacuation_extent_extended</td>
+      </tr>
+      <tr>
+        <td>To-point layer</td>
+        <td>evacuation_sites (New Evacuation Site - amenities = “evacuation”)</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <p class="paraTitle">3.2.7 evacuation_sites</p>
+
+  <p>Preliminary research indicates that community facilities such as schools and places of worship can serve as evacuation sites, given their perceived resilience to flood impacts (Mustaffa, 2016). To identify suitable evacuation sites, a process was undertaken:</p>
+
+  <ol>
+    <li>derna_education and derna_places_of_worship were merged into a temporary layer.</li>
+    <li>The Select Features by Location tool was utilized to identify points (facilities) within the worst-affected area, as defined by hexagon_worst_affected.</li>
+    <li>The feature selection was then inverted.</li>
+    <li>The selected features, now representing facilities outside the flood area, were saved as evacuation_sites.</li>
+  </ol>
+
+
+  <p class="paraTitle">3.2.8 hexagon-prefixed layers (except hexagon_worst_affected)</p>
+
+  <p>Firstly, derna_city_250m_hexagon.shp was converted to GeoPackage in the project’s CRS as hexagon_all. </p>
+  <p>To create a layer with the city boundaries without the internal hexagons, a copy was created and saved as hexagon_merged, before the Edit Geometry > Merged Selected Features (where all features were selected) was used.</p>
+  <p>heaxgon_with_buildings was created by deleting some hexagons manually from a copy of hexagon_all as they were in areas like open sea, cliffs or uninhabited land</p>
+
+  
+
+
+  <p class="paraTitle">3.2.9 roads_merged</p>
+
+  <p>This dataset is the whole undamaged original road network in Derna.To obtain the entire road network layer, we combined the 2 layers using the union tool in QGIS. </p>
+
+  <div class = "paraImg">
+    <img src = "static/methodology/m14.png">
+    <p>Fig 3.14 OSM Roads Dataset</p>
+  </div>
+
+  <p class="paraTitle">3.2.10 roads_damaged</p>
+
+  <p>To calculate the road damage extent, we overlay the classification layer on the joint road layer. Using the intersect tool in QGIS, we extracted the road segments that are fully or partially covered in soil (bare land (2) class)</p>
+
+  <div class = "paraImg">
+    <img src = "static/methodology/m15.png">
+    <p>Fig 3.15 Damaged Roads</p>
+  </div>
+
+  <p>Afterwards, this layer was overlaid with the roads_merged layer, and roads that were damaged or inaccessible to the rest of the road network were manually deleted. This was done to ensure a cleaner network analysis.</p>
+
+  <p class="paraTitle">3.2.11 wadi_derna_boundary</p>
+
+
+  <p>The Wadi Derna, which runs through the middle of Derna, was manually selected and saved to GeoPackage with the project CRS.</p>
+  <p>
+    In addition to classifying building layers, we also integrated point layers representing critical facilities like educational institutions, religious centres, and healthcare facilities. These points of interest were crucial components of the urban infrastructure, and having data on their locations aided in our flood impact assessment. To achieve this, we joined the point layers to our existing dataset, ensuring that these vital elements were effectively incorporated into our analysis.
+  </p>  
+
+  <div class = "paraImg">
+    <img src = "static/methodology/m16.jpg">
+    <p>Fig 3.16 Joint Point Layer, Critical Facilities</p>
+  </div>  
 
 
 
-<h1 class="title toc-ignore">Methodology</h1>
-
-</div>
-
-
-<p>Theme 3: Integrating GIS and Remotely Sensed Data for Urban Flood
-Loss Assessment and Recovery Planning.</p>
-
-
-
-
-</div>
-
+    </div>
+  
+    <div class = "sectionContainer">
+      <p>KEY FINDINGS</p>
+    </div>
+  
+    <div class = "paraContainer">
+      <p>The floods in Derna have caused widespread damage to public infrastructure, homes, and businesses. The city's roads and bridges were severely damaged, making it difficult for people to get around and access essential services. Many public buildings, including hospitals, schools, and government offices, were also damaged or destroyed. In addition, thousands of homes were destroyed or damaged, leaving many people homeless. 
+        We urge the relevant authorities to develop a comprehensive plan for reducing the risk of future flooding by working with disaster mitigation experts. This plan should include measures such as zoning restrictions in flood-prone areas, elevation of buildings above flood levels, restoration of flood plains and infrastructure for flood mitigation, development of early warning systems and education of the public about flood risk and preparedness.
+        </p>
+    </div>
+  
+    <div class = "sectionContainer footnote">
+      <p>FOOTNOTES</p>
+    </div>
+  
+    <div class = "paraContainer" style = "margin-top: 0vh;">
+      <ol>
+        <li><a href="https://www.unicef.org/emergencies/devastating-flooding-libya" target="_blank">https://www.unicef.org/emergencies/devastating-flooding-libya</a></li>
+        <li><a href="https://www.dw.com/en/derna-the-libyan-city-known-for-rebellion-and-neglect/a-66822261" target="_blank">https://www.dw.com/en/derna-the-libyan-city-known-for-rebellion-and-neglect/a-66822261</a></li>
+        <li><a href="https://www.nbcnews.com/news/world/libya-floods-death-toll-derna-rcna105001" target="_blank">https://www.nbcnews.com/news/world/libya-floods-death-toll-derna-rcna105001</a></li>
+      </ol>
+      
+      
+    </div>
+  
+    
+  </div>
 <script>
 
 // add bootstrap table styles to pandoc tables
