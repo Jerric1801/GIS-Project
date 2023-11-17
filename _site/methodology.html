@@ -469,10 +469,10 @@ display: none;
     </div>
   
     <div class="paraContainer">
-      <table border="1">
+
+      <table>
         <thead>
           <tr>
-            <th>Shapefiles</th>
             <th>File Name</th>
             <th>Description</th>
             <th>Source</th>
@@ -480,55 +480,46 @@ display: none;
         </thead>
         <tbody>
           <tr>
-            <td> </td>
             <td>derna_city_250m_hexagon.shp</td>
             <td>250m-width hexagonal layer encompassing Derna city limits</td>
             <td>ESRI shapefile format on eLearn GIS Project Folder</td>
           </tr>
           <tr>
-            <td>OSM point layer of education facilities in Libya</td>
             <td>hotosm_lby_education_facilities_points_shp_point.shp</td>
             <td>OSM point layer of education facilities in Libya</td>
             <td><a href="https://data.humdata.org/dataset/hotosm_lby_education_facilities" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>OSM point layer of healthcare facilities in Libya</td>
             <td>hotosm_lby_healthcare_facilities_points_shp_point.shp</td>
             <td>OSM point layer of healthcare facilities in Libya</td>
             <td><a href="https://data.humdata.org/dataset/hotosm_lby_healthcare_facilities" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>OSM point layer of points of interest in Libya</td>
             <td>hotosm_lby_points_of_interest_points_shp_point.shp</td>
             <td>OSM point layer of points of interest in Libya</td>
             <td><a href="https://data.humdata.org/dataset/hotosm_lby_points_of_interest" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>OSM polygon layer of waterways in Libya</td>
             <td>hotosm_lby_waterways_polygons_shp_poly.shp</td>
             <td>OSM polygon layer of waterways in Libya</td>
             <td><a href="https://data.humdata.org/dataset/hotosm_lby_waterways" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>OSM line layer of roads in Derna</td>
             <td>lby_trs_roads_osm.shp</td>
             <td>OSM line layer of roads in Derna</td>
             <td><a href="https://data.humdata.org/dataset/lby_roads_streets" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>OSM line layer of streets in Derna</td>
             <td>lby_trs_streets_osm.shp</td>
             <td>OSM line layer of streets in Derna</td>
             <td><a href="https://data.humdata.org/dataset/lby_roads_streets" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>CSV file of coordinates of building footprints in Derna flood affected area</td>
             <td>open_buildings_v3_polygons_Libya_Derna_floods.csv</td>
             <td>CSV file of coordinates of building footprints in Derna flood affected area</td>
             <td><a href="https://data.humdata.org/dataset/buildings-footprint-floods-derna-libya" target="_blank">Source</a></td>
           </tr>
           <tr>
-            <td>Raster layers of GeoEye-1 satellite imagery</td>
             <td>Satellite Imagery from Maxar Technologies GeoEye-1 (1st July & 13th September 2023)</td>
             <td>Image quadkey numbers for both dates: 120200213121, 120200213123, 120200213130, 120200213131, 120200213132, 120200213133</td>
             <td><a href="https://www.maxar.com/open-data/libya-floods-0923" target="_blank">Source</a></td>
@@ -580,7 +571,7 @@ display: none;
       <p>Fig 3.2 Google Building Dataset</p>
     </div>
 
-    <p class="paraTitleSec">building_damage_proportion (Calculate Building Damage Extent using Classification)</p>
+    <p class="paraTitleSec">3.2.3.1  building_damage_proportion (Calculate Building Damage Extent using Classification)</p>
 
     <p>To assess the extent of damage, we calculated the damage of relevant classes by determining the proportion of building area that was covered in soil. This is done in QGIS by intersecting the soil layer with the building layer, extracting the portions of the soil layer that are within each building. Next, we joined the intersected layer with the building layer and calculated a new column based on the area of the soil layer over the area of the building. </p>
 
@@ -628,7 +619,7 @@ display: none;
       <p>Fig 3.4 Classified Damaged Extent </p>
     </div>
 
-    <p class="paraTitleSec">building_loss_classification (Loss Classification Analysis)</p>
+    <p class="paraTitleSec">3.2.3.2 building_loss_classification (Loss Classification Analysis)</p>
 
     <p>To distinguish between the Residential and Non-Residential Buildings, we exported the building layer within the delineated flood hazard area into a csv file. We added the following variables to the layer, which were derived from the geometry of the buildings:
       <ol>
@@ -701,7 +692,7 @@ display: none;
       df['Building Name'] = building_names
     </code>
 
-    <p>Subsequently, we used a hashmap to map the type of building to the following subcategories: </p>
+    <p>Subsequently, we used a hashmap to map the type of building to the following subcategories. Below shows a snippet of the hashmap: </p>
 
     <code>
       {'hair_care': 'Economic',
@@ -951,27 +942,32 @@ display: none;
 
     </div>
   
-    <div class = "sectionContainer">
-      <p>KEY FINDINGS</p>
-    </div>
-  
-    <div class = "paraContainer">
-      <p>The floods in Derna have caused widespread damage to public infrastructure, homes, and businesses. The city's roads and bridges were severely damaged, making it difficult for people to get around and access essential services. Many public buildings, including hospitals, schools, and government offices, were also damaged or destroyed. In addition, thousands of homes were destroyed or damaged, leaving many people homeless. 
-        We urge the relevant authorities to develop a comprehensive plan for reducing the risk of future flooding by working with disaster mitigation experts. This plan should include measures such as zoning restrictions in flood-prone areas, elevation of buildings above flood levels, restoration of flood plains and infrastructure for flood mitigation, development of early warning systems and education of the public about flood risk and preparedness.
-        </p>
-    </div>
   
     <div class = "sectionContainer footnote">
-      <p>FOOTNOTES</p>
+      <p>References</p>
     </div>
   
     <div class = "paraContainer" style = "margin-top: 0vh;">
       <ol>
-        <li><a href="https://www.unicef.org/emergencies/devastating-flooding-libya" target="_blank">https://www.unicef.org/emergencies/devastating-flooding-libya</a></li>
-        <li><a href="https://www.dw.com/en/derna-the-libyan-city-known-for-rebellion-and-neglect/a-66822261" target="_blank">https://www.dw.com/en/derna-the-libyan-city-known-for-rebellion-and-neglect/a-66822261</a></li>
-        <li><a href="https://www.nbcnews.com/news/world/libya-floods-death-toll-derna-rcna105001" target="_blank">https://www.nbcnews.com/news/world/libya-floods-death-toll-derna-rcna105001</a></li>
+        <li>
+          Ahmed, S. M., Husain, A. M. M., Sattar, M. G., Chowdhury, A. M. R. (1999). Assessment of flood losses and post-flood rehabilitation needs in BRAC’s programme areas. Experiences of Deluge: Flood 1998. <a href="https://www.researchgate.net/profile/Syed-Masud-Ahmed/publication/285166244_A_quick_assessment_of_flood_losses_and_post-flood_rehabilitation_needs_in_BRAC's_program_areas/links/58e4731aaca272d62977a466/A-quick-assessment-of-flood-losses-and-post-flood-rehabilitation-needs-in-BRACs-program-areas.pdf#page=7" target="_blank">Link</a>
+        </li>
+        <li>
+          GISGeography (2017, May 6). OBIA - Object Based Image Analysis (GEOBIA). GISGeography. <a href="https://gisgeography.com/obia-object-based-image-analysis-geobia/" target="_blank">Link</a>
+        </li>
+        <li>
+          Ksafi, R. G. (2023, September 28). Survivors find strength in community after horror of Derna floods. United Nations High Commissioner for Refugees Stories. <a href="https://www.unhcr.org/news/stories/survivors-find-strength-community-after-horror-derna-floods" target="_blank">Link</a>
+        </li>
+        <li>
+          Mustaffa, A. A., Rosli, M. F., Abustan, M. S., Adib, R., Rosli, M. I., Masiri, K., & Saifullizan, B. (2016). A study of flood evacuation center using GIS and remote sensing technique. IOP Conference Series: Materials Science and Engineering, 136, 012078. <a href="https://doi.org/10.1088/1757-899x/136/1/012078" target="_blank">Link</a>
+        </li>
+        <li>
+          Schaer, C. (2023, September 20). Derna: The Libyan city known for rebellion - and neglect – DW – 09/15/2023. dw.com. <a href="https://www.dw.com/en/derna-the-libyan-city-known-for-rebellion-and-neglect/a-66822261" target="_blank">Link</a>
+        </li>
+        <li>
+          Derna Dam collapses. Wikipedia. (2023, November 16). <a href="https://en.wikipedia.org/wiki/Derna_dam_collapses" target="_blank">Link</a>
+        </li>
       </ol>
-      
       
     </div>
   

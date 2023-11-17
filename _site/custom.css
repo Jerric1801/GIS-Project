@@ -292,7 +292,7 @@ body {
 
 .paraContainer {
   margin-top: 1vh;
-  width: 75%;
+  width: 75% !important;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -380,6 +380,7 @@ body {
 
 
 table {
+  max-width: 100%;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -397,7 +398,45 @@ th {
 }
 
 code {
+  max-width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 750px) {
+  .paraContainer {
+    font-size: 1;
+    width: 75% !important;
+    padding: 1em;
+    word-wrap: break-word !important;
+    border-bottom: solid 0.33px grey;
+  }
+  table {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: auto; /* Add horizontal scroll for smaller screens */
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.4em;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+
+  code {
+    max-width: 100%;
+    font-size: 0.85em; /* Optionally adjust font size for code on smaller screens */
+    word-wrap: break-word;
+    white-space: pre-wrap; /* or white-space: normal; */
+    overflow-x: auto;
+  }
 }
 
