@@ -617,8 +617,10 @@ display: none;
 
             <p>Using remote sensing, we aimed to estimate the damage extent of buildings and roads as a result of the flood. Damage extent plays an important role in loss assessment as it helps decision makers prioritise resource allocation in response efforts.</p>
 
+            <div id="map2" class = "map"></div>
+
             <div class = "paraImg">
-                <img src = "static/results/r7.png">
+                <!-- <img src = "static/results/r7.png"> -->
                 <p>Fig 4.7 Damage Extent of Buildings in City Centre</p>
             </div>
 
@@ -630,6 +632,7 @@ display: none;
                 <img src = "static/results/r8.png">
                 <p>Fig 4.8 Damage Extent Count</p>
             </div>
+            
               
             <p>Figure 4.8 reveals that 3680 out of 5215 buildings in the city centre incurred damage from the flood in various capacities. Given that approximately 71% of these buildings sustained damage, the actual impact may be more substantial than the calculated 31.12% change in land cover. This is particularly true if critical components of the building's infrastructure are destroyed, rendering it unsuitable for use as temporary shelter despite being labelled with only 'minor' damage.</p>
 
@@ -678,9 +681,10 @@ display: none;
 
             <p>These subcategories were selectively chosen based on a rough analysis on the building typology in Derna city. It aims to provide structure in a multi-faceted approach, enabling decision makers to have a better grasp of the spectrum of loss created by the flood.</p>
 
+            <div id="map1" class = "map"></div>
+
 
             <div class = "paraImg">
-                <img src = "static/results/r9.png">
                 <p>Fig 4.9 Building Loss Category in City Centre</p>
             </div>
 
@@ -836,7 +840,7 @@ display: none;
 
                 <p>As expected, the exclusion of city centre public amenities as evacuation sites means that the northern half of this area remains out of the 20 minute service area of evacuation sites in Derna.</p>
 
-            <p class="paraTitle">4.5 Conclusion for Recovery Planning</p>
+            <p class="paraTitle">4.5 Recovery Planning</p>
 
             <p>
                 The purpose of short-term recovery after a flood is to restore basic services and infrastructure, and to help people get back to their normal lives as quickly as possible. This includes rebuilding essential public facilities, repairing roads and bridges, and providing safe and affordable housing for those who have been displaced.
@@ -970,7 +974,691 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script src="js/qgis2web_expressions.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet.rotatedMarker.js"></script>
+<script src="js/leaflet.pattern.js"></script>
+<script src="js/leaflet-hash.js"></script>
+<script src="js/Autolinker.min.js"></script>
+<script src="js/rbush.min.js"></script>
+<script src="js/labelgun.min.js"></script>
+<script src="js/labels.js"></script>
+<script src="data/WorstAffectedArea_0.js"></script>
+<script src="data/derna_roads_1.js"></script>
+<script src="data/derna_streets_2.js"></script>
+<script src="data/LossAssessmentCategory_3.js"></script>
+<script>
+var highlightLayer;
+function highlightFeature(e) {
+    highlightLayer = e.target;
+    highlightLayer.openPopup();
+}
+var map = L.map('map1', {
+    zoomControl:true, maxZoom:22, minZoom:15
+}).fitBounds([[32.75303578199863,22.62837745704003],[32.776055579775225,22.656431286397506]]);
+var hash = new L.Hash(map);
+map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+var bounds_group = new L.featureGroup([]);
+function setBounds() {
+}
+function pop_WorstAffectedArea_0(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['PCode'] !== null ? autolinker.link(feature.properties['PCode'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
 
+function style_WorstAffectedArea_0_0() {
+    return {
+        pane: 'pane_WorstAffectedArea_0',
+        opacity: 1,
+        color: 'rgba(0,0,0,1.0)',
+        dashArray: '',
+        lineCap: 'square',
+        lineJoin: 'bevel',
+        weight: 4.0,
+        fillOpacity: 0,
+        interactive: false,
+    }
+}
+map.createPane('pane_WorstAffectedArea_0');
+map.getPane('pane_WorstAffectedArea_0').style.zIndex = 400;
+map.getPane('pane_WorstAffectedArea_0').style['mix-blend-mode'] = 'normal';
+var layer_WorstAffectedArea_0 = new L.geoJson(json_WorstAffectedArea_0, {
+    attribution: '',
+    interactive: false,
+    dataVar: 'json_WorstAffectedArea_0',
+    layerName: 'layer_WorstAffectedArea_0',
+    pane: 'pane_WorstAffectedArea_0',
+    onEachFeature: pop_WorstAffectedArea_0,
+    style: style_WorstAffectedArea_0_0,
+});
+bounds_group.addLayer(layer_WorstAffectedArea_0);
+map.addLayer(layer_WorstAffectedArea_0);
+function pop_derna_roads_1(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['objectid'] !== null ? autolinker.link(feature.properties['objectid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
+
+function style_derna_roads_1_0() {
+    return {
+        pane: 'pane_derna_roads_1',
+        opacity: 1,
+        color: 'rgba(55,55,55,1.0)',
+        dashArray: '',
+        lineCap: 'square',
+        lineJoin: 'bevel',
+        weight: 1.0,
+        fillOpacity: 0,
+        interactive: false,
+    }
+}
+map.createPane('pane_derna_roads_1');
+map.getPane('pane_derna_roads_1').style.zIndex = 401;
+map.getPane('pane_derna_roads_1').style['mix-blend-mode'] = 'normal';
+var layer_derna_roads_1 = new L.geoJson(json_derna_roads_1, {
+    attribution: '',
+    interactive: false,
+    dataVar: 'json_derna_roads_1',
+    layerName: 'layer_derna_roads_1',
+    pane: 'pane_derna_roads_1',
+    onEachFeature: pop_derna_roads_1,
+    style: style_derna_roads_1_0,
+});
+bounds_group.addLayer(layer_derna_roads_1);
+map.addLayer(layer_derna_roads_1);
+function pop_derna_streets_2(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['objectid'] !== null ? autolinker.link(feature.properties['objectid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
+
+function style_derna_streets_2_0() {
+    return {
+        pane: 'pane_derna_streets_2',
+        opacity: 1,
+        color: 'rgba(81,81,81,1.0)',
+        dashArray: '',
+        lineCap: 'square',
+        lineJoin: 'bevel',
+        weight: 1.0,
+        fillOpacity: 0,
+        interactive: false,
+    }
+}
+map.createPane('pane_derna_streets_2');
+map.getPane('pane_derna_streets_2').style.zIndex = 402;
+map.getPane('pane_derna_streets_2').style['mix-blend-mode'] = 'normal';
+var layer_derna_streets_2 = new L.geoJson(json_derna_streets_2, {
+    attribution: '',
+    interactive: false,
+    dataVar: 'json_derna_streets_2',
+    layerName: 'layer_derna_streets_2',
+    pane: 'pane_derna_streets_2',
+    onEachFeature: pop_derna_streets_2,
+    style: style_derna_streets_2_0,
+});
+bounds_group.addLayer(layer_derna_streets_2);
+map.addLayer(layer_derna_streets_2);
+function pop_LossAssessmentCategory_3(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2"><strong>fid</strong><br />' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2"><strong>Building Type</strong><br />' + (feature.properties['Building Type'] !== null ? autolinker.link(feature.properties['Building Type'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2"><strong>Building Name</strong><br />' + (feature.properties['Building Name'] !== null ? autolinker.link(feature.properties['Building Name'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2"><strong>Loss Category</strong><br />' + (feature.properties['Loss Category'] !== null ? autolinker.link(feature.properties['Loss Category'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
+
+function style_LossAssessmentCategory_3_0(feature) {
+    switch(String(feature.properties['Loss Category'])) {
+        case 'Cultural':
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        stroke: false, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(47,114,24,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'Economic':
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        opacity: 1,
+        color: 'rgba(38,89,128,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(255,171,37,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'Governance':
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        opacity: 1,
+        color: 'rgba(38,89,128,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(51,118,234,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'Health & Safety':
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        opacity: 1,
+        color: 'rgba(38,89,128,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(200,61,42,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'Humanitarian':
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        opacity: 1,
+        color: 'rgba(38,89,128,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(255,255,255,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'Social':
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        opacity: 1,
+        color: 'rgba(38,89,128,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(163,109,216,1.0)',
+        interactive: true,
+    }
+            break;
+        default:
+            return {
+        pane: 'pane_LossAssessmentCategory_3',
+        opacity: 1,
+        color: 'rgba(38,89,128,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(200,77,43,1.0)',
+        interactive: true,
+    }
+            break;
+    }
+}
+map.createPane('pane_LossAssessmentCategory_3');
+map.getPane('pane_LossAssessmentCategory_3').style.zIndex = 403;
+map.getPane('pane_LossAssessmentCategory_3').style['mix-blend-mode'] = 'normal';
+var layer_LossAssessmentCategory_3 = new L.geoJson(json_LossAssessmentCategory_3, {
+    attribution: '',
+    interactive: true,
+    dataVar: 'json_LossAssessmentCategory_3',
+    layerName: 'layer_LossAssessmentCategory_3',
+    pane: 'pane_LossAssessmentCategory_3',
+    onEachFeature: pop_LossAssessmentCategory_3,
+    style: style_LossAssessmentCategory_3_0,
+});
+bounds_group.addLayer(layer_LossAssessmentCategory_3);
+map.addLayer(layer_LossAssessmentCategory_3);
+var baseMaps = {};
+L.control.layers(baseMaps,{'Loss Assessment Category <br /><table><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_Cultural0.png" /></td><td>Cultural</td></tr><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_Economic1.png" /></td><td>Economic</td></tr><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_Governance2.png" /></td><td>Governance</td></tr><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_HealthSafety3.png" /></td><td>Health & Safety</td></tr><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_Humanitarian4.png" /></td><td>Humanitarian</td></tr><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_Social5.png" /></td><td>Social</td></tr><tr><td style="text-align: center;"><img src="legend/LossAssessmentCategory_3_6.png" /></td><td></td></tr></table>': layer_LossAssessmentCategory_3,'<img src="legend/derna_streets_2.png" /> derna_streets': layer_derna_streets_2,'<img src="legend/derna_roads_1.png" /> derna_roads': layer_derna_roads_1,'<img src="legend/WorstAffectedArea_0.png" /> Worst Affected Area': layer_WorstAffectedArea_0,}).addTo(map);
+setBounds();
+</script>
     
+<script src="js/qgis2web_expressions.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet.rotatedMarker.js"></script>
+<script src="js/leaflet.pattern.js"></script>
+<script src="js/leaflet-hash.js"></script>
+<script src="js/Autolinker.min.js"></script>
+<script src="js/rbush.min.js"></script>
+<script src="js/labelgun.min.js"></script>
+<script src="js/labels.js"></script>
+<script src="data/WorstAffectedArea_0.js"></script>
+<script src="data/BuildingDamageExtent_1.js"></script>
+<script src="data/DamagedRoads_2.js"></script>
+<script>
+var highlightLayer;
+function highlightFeature(e) {
+    highlightLayer = e.target;
+    highlightLayer.openPopup();
+}
+var map = L.map('map2', {
+    zoomControl:true, maxZoom:22, minZoom:15
+}).fitBounds([[32.75484471377306,22.62764914026759],[32.776673999230994,22.654252499417]]);
+var hash = new L.Hash(map);
+map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+var bounds_group = new L.featureGroup([]);
+function setBounds() {
+}
+function pop_WorstAffectedArea_0(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['PCode'] !== null ? autolinker.link(feature.properties['PCode'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
+
+function style_WorstAffectedArea_0_0() {
+    return {
+        pane: 'pane_WorstAffectedArea_0',
+        opacity: 1,
+        color: 'rgba(0,0,0,1.0)',
+        dashArray: '',
+        lineCap: 'square',
+        lineJoin: 'bevel',
+        weight: 4.0,
+        fillOpacity: 0,
+        interactive: false,
+    }
+}
+map.createPane('pane_WorstAffectedArea_0');
+map.getPane('pane_WorstAffectedArea_0').style.zIndex = 400;
+map.getPane('pane_WorstAffectedArea_0').style['mix-blend-mode'] = 'normal';
+var layer_WorstAffectedArea_0 = new L.geoJson(json_WorstAffectedArea_0, {
+    attribution: '',
+    interactive: false,
+    dataVar: 'json_WorstAffectedArea_0',
+    layerName: 'layer_WorstAffectedArea_0',
+    pane: 'pane_WorstAffectedArea_0',
+    onEachFeature: pop_WorstAffectedArea_0,
+    style: style_WorstAffectedArea_0_0,
+});
+bounds_group.addLayer(layer_WorstAffectedArea_0);
+map.addLayer(layer_WorstAffectedArea_0);
+function pop_BuildingDamageExtent_1(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['Damage Class'] !== null ? autolinker.link(feature.properties['Damage Class'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
+
+function style_BuildingDamageExtent_1_0(feature) {
+    switch(String(feature.properties['Damage Class'])) {
+        case 'extensive damage':
+            return {
+        pane: 'pane_BuildingDamageExtent_1',
+        opacity: 1,
+        color: 'rgba(35,35,35,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(98,10,49,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'minor damage':
+            return {
+        pane: 'pane_BuildingDamageExtent_1',
+        opacity: 1,
+        color: 'rgba(35,35,35,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(255,248,183,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'moderate damage':
+            return {
+        pane: 'pane_BuildingDamageExtent_1',
+        opacity: 1,
+        color: 'rgba(35,35,35,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(253,178,101,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'no damage':
+            return {
+        pane: 'pane_BuildingDamageExtent_1',
+        opacity: 1,
+        color: 'rgba(35,35,35,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(186,227,169,1.0)',
+        interactive: true,
+    }
+            break;
+        case 'severe damage':
+            return {
+        pane: 'pane_BuildingDamageExtent_1',
+        opacity: 1,
+        color: 'rgba(35,35,35,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(169,64,45,1.0)',
+        interactive: true,
+    }
+            break;
+        default:
+            return {
+        pane: 'pane_BuildingDamageExtent_1',
+        opacity: 1,
+        color: 'rgba(35,35,35,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(43,131,186,1.0)',
+        interactive: true,
+    }
+            break;
+    }
+}
+map.createPane('pane_BuildingDamageExtent_1');
+map.getPane('pane_BuildingDamageExtent_1').style.zIndex = 401;
+map.getPane('pane_BuildingDamageExtent_1').style['mix-blend-mode'] = 'normal';
+var layer_BuildingDamageExtent_1 = new L.geoJson(json_BuildingDamageExtent_1, {
+    attribution: '',
+    interactive: true,
+    dataVar: 'json_BuildingDamageExtent_1',
+    layerName: 'layer_BuildingDamageExtent_1',
+    pane: 'pane_BuildingDamageExtent_1',
+    onEachFeature: pop_BuildingDamageExtent_1,
+    style: style_BuildingDamageExtent_1_0,
+});
+bounds_group.addLayer(layer_BuildingDamageExtent_1);
+map.addLayer(layer_BuildingDamageExtent_1);
+function pop_DamagedRoads_2(feature, layer) {
+    layer.on({
+        mouseout: function(e) {
+            if (typeof layer.closePopup == 'function') {
+                layer.closePopup();
+            } else {
+                layer.eachLayer(function(feature){
+                    feature.closePopup()
+                });
+            }
+        },
+        mouseover: highlightFeature,
+    });
+    var popupContent = '<table>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['ntlclass'] !== null ? autolinker.link(feature.properties['ntlclass'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['srftpe'] !== null ? autolinker.link(feature.properties['srftpe'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['count'] !== null ? autolinker.link(feature.properties['count'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['predicted'] !== null ? autolinker.link(feature.properties['predicted'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fid_2'] !== null ? autolinker.link(feature.properties['fid_2'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['rtenme'] !== null ? autolinker.link(feature.properties['rtenme'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['ntlclass_2'] !== null ? autolinker.link(feature.properties['ntlclass_2'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['fclass_2'] !== null ? autolinker.link(feature.properties['fclass_2'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['srftpe_2'] !== null ? autolinker.link(feature.properties['srftpe_2'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['isseasonal'] !== null ? autolinker.link(feature.properties['isseasonal'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['DN'] !== null ? autolinker.link(feature.properties['DN'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['count_2'] !== null ? autolinker.link(feature.properties['count_2'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['stdev_1'] !== null ? autolinker.link(feature.properties['stdev_1'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['min_1'] !== null ? autolinker.link(feature.properties['min_1'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['max_1'] !== null ? autolinker.link(feature.properties['max_1'].toLocaleString()) : '') + '</td>\
+            </tr>\
+            <tr>\
+                <td colspan="2">' + (feature.properties['predicted_2'] !== null ? autolinker.link(feature.properties['predicted_2'].toLocaleString()) : '') + '</td>\
+            </tr>\
+        </table>';
+    layer.bindPopup(popupContent, {maxHeight: 400});
+}
+
+function style_DamagedRoads_2_0() {
+    return {
+        pane: 'pane_DamagedRoads_2',
+        opacity: 1,
+        color: 'rgba(234,12,0,1.0)',
+        dashArray: '',
+        lineCap: 'square',
+        lineJoin: 'bevel',
+        weight: 2.0,
+        fillOpacity: 0,
+        interactive: false,
+    }
+}
+map.createPane('pane_DamagedRoads_2');
+map.getPane('pane_DamagedRoads_2').style.zIndex = 402;
+map.getPane('pane_DamagedRoads_2').style['mix-blend-mode'] = 'normal';
+var layer_DamagedRoads_2 = new L.geoJson(json_DamagedRoads_2, {
+    attribution: '',
+    interactive: false,
+    dataVar: 'json_DamagedRoads_2',
+    layerName: 'layer_DamagedRoads_2',
+    pane: 'pane_DamagedRoads_2',
+    onEachFeature: pop_DamagedRoads_2,
+    style: style_DamagedRoads_2_0,
+});
+bounds_group.addLayer(layer_DamagedRoads_2);
+map.addLayer(layer_DamagedRoads_2);
+var baseMaps = {};
+L.control.layers(baseMaps,{'<img src="legend/DamagedRoads_2.png" /> Damaged Roads': layer_DamagedRoads_2,'Building Damage Extent<br /><table><tr><td style="text-align: center;"><img src="legend/BuildingDamageExtent_1_extensivedamage0.png" /></td><td>extensive damage</td></tr><tr><td style="text-align: center;"><img src="legend/BuildingDamageExtent_1_minordamage1.png" /></td><td>minor damage</td></tr><tr><td style="text-align: center;"><img src="legend/BuildingDamageExtent_1_moderatedamage2.png" /></td><td>moderate damage</td></tr><tr><td style="text-align: center;"><img src="legend/BuildingDamageExtent_1_exposedtofloodwater3.png" /></td><td>exposed to floodwater</td></tr><tr><td style="text-align: center;"><img src="legend/BuildingDamageExtent_1_severedamage4.png" /></td><td>severe damage</td></tr><tr><td style="text-align: center;"><img src="legend/BuildingDamageExtent_1_5.png" /></td><td></td></tr></table>': layer_BuildingDamageExtent_1,'<img src="legend/WorstAffectedArea_0.png" /> Worst Affected Area': layer_WorstAffectedArea_0,}).addTo(map);
+setBounds();
+</script>
 </body>
 </html>
