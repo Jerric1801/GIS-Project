@@ -564,7 +564,7 @@ code {
     display: none;
   }
 
-  #aboutus{
+  #aboutUs{
     flex-direction: column-reverse;
   }
 }
