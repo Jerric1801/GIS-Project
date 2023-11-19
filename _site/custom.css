@@ -494,6 +494,36 @@ code {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
+#aboutUs {
+  width: 75%;
+  height: 55vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+.aboutImg {
+  width: 35%;
+  height: 100%;
+}
+
+.aboutImg img {
+  height: auto
+}
+
+.aboutCon {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3rem;
+  padding-right: 5rem!important;
+}
+
 @media only screen and (max-width: 750px) {
   .paraContainer {
     font-size: 1;
