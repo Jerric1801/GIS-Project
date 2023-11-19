@@ -566,6 +566,14 @@ code {
 
   #aboutUs{
     flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .aboutCon{
+    width:100%
+  }
+  .aboutImg{
+    width:100%;
   }
 }
 
