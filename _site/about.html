@@ -481,16 +481,44 @@ display: none;
             <br>&nbsp;Nicolas Tang
             <br>&nbsp;Eleora Emma Jane Lim</p>
           <br>
-          <p> Find our webpage resources here: <br><a href = "https://github.com/Jerric1801/GIS-Project">
-            <img id = "github" src = "static/github_logo.png">
-          </a></p>
+          <p> Find our resources here: <br>
+            <div id = "resources">
+            <div class = "resourceHolder">
+              <a target = "_blank" href = "https://github.com/Jerric1801/GIS-Project"><img class = "resourceImg" src = "static/github_logo.png">
+              <p>Github</p></a>
+            </div>
+            <div class = "resourceHolder">
+              <a target = "_blank" href = "https://docs.google.com/document/d/1rJfyeGq8NU1qlKlkfpdMWWypfknKFQIiFXYXukDT_Lw/edit?usp=sharing"><img class = "resourceImg" src = "static/docs_logo.png" style = "width: 87%">
+              <p>Report</p></a>
+              </div>
+          </div>
+
 
         </div>
         <div class = "aboutImg">
         <img src = "static/about_us.jpg">
         </div>
       </div>
+
+      <br>
   
+      <div class="sectionContainer">
+        <p>LESSONS LEARNT</p>
+      </div>
+
+      <div class = "paraContainer">
+        <p>Through the course of this project, we have 3 major takeaways:</p>
+
+<p>Firstly, a new technique to do land cover classification. Object-based Image Analysis was a significant upgrade from the standard pixel-by-pixel based classification that was taught in class, in terms of the accuracy of the results produced. However, we would have to go and learn it through video tutorials and other online materials instead of in class, and faced multiple repeated failures while attempting to use different parameters. For instance, a 9-class model was initially developed, but the results were not very inaccurate. As our analysis is also quantitative in measure, we had to redo the classification model development again or risk getting inaccurate results.</p>
+
+<p>Secondly, the difficulty in showcasing and scoping down what we want to do for the project. Loss Assessment and Urban Recovery, we felt, gave the greatest understanding of the situation in Derna - as one must first understand the damages and how they came about, before analysing current and potential resources and situations for rebuilding. However, this means that the level of analysis we can do and the scope of recommendations for rebuilding can be quite extensive. To ensure we are able to create quality results, we ended up scoping our loss assessment to a worst affected area, and created rebuilding analysis maps and high level recommendations that were focused on the area. Even despite this we were unable to put most of our assessment onto the poster and had to scope down what was the most important. From this, we realised that while we may want to do everything, the messaging behind the recommendations is most important and our priority should be directed to that effort.</p>
+
+<p>Finally, we learnt about the limitations (and versatility in workarounds) in GIS methods where there is limited data and understanding of ground truths. Best-guess approaches, using assumptions and practices that are more universal, can be used as a workaround for the analysis. For instance, the buildings classification used number of vertices and area of building as variables as we realised that there was some correlation between building type and shape/area. We could strengthen this best-guess approach by trying to use richer data where possible - for instance, we turned to the more data-rich Google Places API instead of OpenStreetMap when putting the training dataset together.</p>
+
+<p>In all, we have learnt much from applying GIS methods to a foreign context and recognising its utility and universality in aiding recommendations for urban planning scenarios.</p>
+
+
+      </div>
     
       
     </div>
