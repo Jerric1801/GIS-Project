@@ -563,5 +563,19 @@ code {
   #toc {
     display: none;
   }
+
+  #aboutus{
+    flex-direction: column-reverse;
+  }
+}
+
+#github {
+  margin-top: 1vh;
+  width:10%;
+  height:auto;
+}
+
+#github:hover {
+  transform: scale(1.02);
 }
 
