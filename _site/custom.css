@@ -199,6 +199,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-top: 3.5vh;
 }
 
   #introImg::before {
@@ -280,7 +281,7 @@ body {
   font-family: overpassBold;
   font-weight: bold;
   color: var(--black);
-  height: 6.5vh;
+  height: auto;
   width: 75%;
   font-size: 3em;
   margin-top: 8vh;
@@ -418,6 +419,79 @@ code {
   max-width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
+  white-space: pre-wrap;
+}
+
+.timeline{
+  height: 90vh;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+#toc {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin-left: 87vw;
+  margin-top: 14vh;
+  width: 12.5vw;
+  height: auto;
+  background-color: transparent;
+  z-index: 99;
+  font-size: 0.8em;
+}
+
+#toc p {
+  opacity: 0.8
+}
+
+#toc:hover {
+  height:80vh;
+}
+
+#toc:hover .tocContent {
+  height: auto;
+  animation: grow 0.33s ease;
+  opacity: 0.8;
+}
+
+  @keyframes grow {
+    from {
+      height:2vh;
+    }
+    to {
+      height: auto;
+    }
+  }
+
+
+.tocContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content:flex-start;
+  text-align: left;
+  height: 2vh;
+  padding-left: 3px;
+  opacity: 0.35;
+  overflow:hidden;
+  line-break: auto;
+  overflow: hidden; /* Hide the content that overflows the fixed height */
+}
+
+.tocContent a {
+  text-decoration: none;
+  color:var(--black);
+}
+
+.tocContent:hover {
+  opacity: 1 !important;
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: #cccccc0b;
+  /* border-left: 0.01px solid rgba(128, 128, 128, 0.503); */
+  /* border-left: 0.33px solid grey; */
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 @media only screen and (max-width: 750px) {
@@ -454,6 +528,10 @@ code {
     word-wrap: break-word;
     white-space: pre-wrap; /* or white-space: normal; */
     overflow-x: auto;
+  }
+
+  #toc {
+    display: none;
   }
 }
 
